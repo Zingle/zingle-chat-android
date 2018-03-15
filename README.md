@@ -16,7 +16,20 @@ The Zingle SDK is distributed in both AAR and JAR format. If you are using Andro
 TODO: Add info here
 
 ## Android Studio with Gradle
-TODO: Add detailed info on Gradle setup here. 
+Add JCenter as a repository in your top-level `build.gradle` file.
+
+```java
+repositories {
+    jcenter()
+}
+```
+
+Add the dependencies into your application-level `build.gradle` file.
+
+```java
+compile 'me.zingle:core:latest.release'
+compile 'me.zingle:ui:latest.release'
+```
 
 # Initialize the SDK
 
