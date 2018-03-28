@@ -112,3 +112,16 @@ Find a suitable place in your app’s interface to invoke Zingle and use the cod
 ConversationActivity.show(this);
 ```
 
+# Customizing strings
+The strings used in the SDK interface can be customized by specifying overrides in a language strings.xml file (for example, ```res/values-en/strings.xml``` for English).  Each string name should be prepended with 'Zingle_'.  Example:
+
+```xml
+<resources>
+    <string name="Zingle_activityConversation">Messages</string>
+    <string name="Zingle_startOfConversation">This is the start of your conversation with the team.</string>
+    <string name="Zingle_welcome">Feel free to leave us a message about anything that\'s on your mind.</string>
+    <string name="Zingle_messageHint">Type a message…</string>
+</resources>
+```
+A complete list of strings can be found [here](https://github.com/Zingle/web-chat#individual-functions).
+
