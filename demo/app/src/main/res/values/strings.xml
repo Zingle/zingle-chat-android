@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Zingle SDK Demo</string>
+    <string name="Zingle_activityConversation">Messages</string>
+    <string name="Zingle_startOfConversation">This is the start of your conversation with the team.</string>
+    <string name="Zingle_welcome">Feel free to leave us a message about anything that\'s on your mind.</string>
+    <string name="Zingle_messageHint">Type a message…</string>
 </resources>
