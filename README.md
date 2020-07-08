@@ -2,7 +2,7 @@
 
 You will need your Zingle SDK App ID to get started.  You can get this info [here](https://app.zingle.me/service/default/settings/channels/chat)
 
-[Full technical docs on the SDK are available here](https://zingle.github.io/zingle-chat-android/) 
+[Full technical docs on the SDK are available here](https://zingle.github.io/zingle-chat-android/)
 
 # Push Notification Setup
 You can develop and test the SDK without push notification support.  In order to allow Zingle to send push notifications on behalf of your app you will need to share the push certificate info with Zingle.  Please contact support@zingleme.com for assistance with Push Notification configuration.
@@ -10,7 +10,7 @@ You can develop and test the SDK without push notification support.  In order to
 # Adding the SDK to your project
 The Zingle SDK is distributed in both AAR and JAR format. If you are using Android Studio, follow the instructions for installation of the AAR package.
 
-**The minimum supported SDK version is API level 15, and your app must be compiled with at least API version 26. If your app needs to support earlier versions of Android, you may still try to integrate, but it is untested and we cannot guarantee compatibility.**
+**The minimum supported SDK version is API level 16, and your app must be compiled with at least API version 26. If your app needs to support earlier versions of Android, you may still try to integrate, but it is untested and we cannot guarantee compatibility.**
 
 ## Android Studio with Gradle
 Add JCenter as a repository in your top-level `build.gradle` file.
@@ -124,4 +124,3 @@ The strings used in the SDK interface can be customized by specifying overrides 
 </resources>
 ```
 A complete list of strings can be found [here](https://github.com/Zingle/web-chat#individual-functions).
-
