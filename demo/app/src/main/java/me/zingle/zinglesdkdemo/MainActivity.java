@@ -1,17 +1,15 @@
 package me.zingle.zinglesdkdemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import me.zingle.ui.ConversationActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private RelativeLayout mRlChatButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
      * calling the show method
      */
     private void showZingleInterface() {
-        ConversationActivity.show(this);
+        ConversationActivity.builder().show(this);
     }
 
     /**
      * Assigns UI relative layout to Activity property and sets on click listener
      */
     private void setUpChatButton() {
-        mRlChatButton = findViewById(R.id.mainActivity_relative_chatButton);
+        RelativeLayout mRlChatButton = findViewById(R.id.mainActivity_relative_chatButton);
         mRlChatButton.setOnClickListener(mChatButtonClickListener);
     }
 
