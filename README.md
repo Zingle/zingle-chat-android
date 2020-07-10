@@ -1,4 +1,5 @@
 # Reference
+[ ![Download](https://api.bintray.com/packages/zingle/maven/zingle-chat/images/download.svg) ](https://bintray.com/zingle/maven/zingle-chat/_latestVersion)
 
 You will need your Zingle SDK App ID to get started.  You can get this info [here](https://app.zingle.me/service/default/settings/channels/chat)
 
@@ -24,8 +25,8 @@ repositories {
 Add the dependencies into your application-level `build.gradle` file.
 
 ```java
-compile 'me.zingle:core:latest.release'
-compile 'me.zingle:ui:latest.release'
+compile 'me.zingle:core:3.0.2'
+compile 'me.zingle:ui:3.0.2'
 ```
 
 # Initialize the SDK
@@ -34,72 +35,21 @@ compile 'me.zingle:ui:latest.release'
 Add the following lines of code to your onCreate method on your Application class:
 
 ```java
-Zingle.init(this, new Settings("YOUR_APP_ID"), new ZingleCallback() {
+import android.app.Application;
+import io.smooch.core.Settings;
+import io.smooch.core.Smooch;
+import io.smooch.core.SmoochCallback;
+
+public class YourApplication extends Application {
     @Override
-    public void run(Response response) {
-        // Your code after init is complete
-    }
-});
-```
-If you don’t have an Application class, you must create one to make sure Zingle is always initialized properly
-
-## Initialize from an Activity class
-You can also initialize Zingle from an Activity. This is useful if you don’t know your Zingle app ID at app launch or if you want to run multiple Zingle services in the same Android app.
-
-Add the following line of code to your onCreate method on your Application class:
-```java
-Zingle.init(this);
-```
-If you don’t have an Application class, you must create one to make sure Zingle is always initialized properly
-
-Add the following line of code where you want to initialize Zingle in your Activity class:
-```java
-Zingle.init(this, new Settings("YOUR_APP_ID"), new ZingleCallback() {
-    @Override
-    public void run(Response response) {
-        // Your code after init is complete
-    }
-});
-```
-
-For example, to initialize Zingle chat when a button is tapped, you can do the following:
-```java
-package your.package;
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-
-import me.zingle.core.Settings;
-import me.zingle.core.Zingle;
-import me.zingle.core.ZingleCallback;
-import me.zingle.ui.ConversationActivity;
-
-public class YourActivity extends AppCompatActivity implements View.OnClickListener {
-    @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Button showConversationActivityButton = findViewById(R.id.button_show_conversation_activity);
-        showConversationActivityButton.setOnClickListener(this);
-    }
-
-    public void onClick(View v) {
-        final int id = v.getId();
-
-        if (id == R.id.button_show_conversation_activity) {
-            Zingle.init(getApplication(), new Settings("YOUR_APP_ID"), new ZingleCallback() {
-                @Override
-                public void run(Response response) {
-                    if (response.getError() == null) {
-                        ConversationActivity.show(getApplicationContext());
-                    }
-                }
-            });
-
-        }
+    public void onCreate() {
+        super.onCreate();
+        Zingle.init(this, new Settings("YOUR_INTEGRATION_ID"), new ZingleCallback<InitializationStatus>() {
+            @Override
+            public void run(Response<InitializationStatus> response) {
+                // Handle init result
+            }
+        });
     }
 }
 ```
@@ -108,8 +58,14 @@ public class YourActivity extends AppCompatActivity implements View.OnClickListe
 Once you’ve initialized Zingle, you’re ready to try it out.
 
 Find a suitable place in your app’s interface to invoke Zingle and use the code below to display the Zingle Chat interface. You can bring up Zingle whenever you think that your user will need access to help or a communication channel to contact you.
+
+Show the ConversationActivity:
 ```java
-ConversationActivity.show(this);
+import io.smooch.ui.ConversationActivity;
+
+...
+
+ConversationActivity.builder().show(this);
 ```
 
 # Customizing strings
