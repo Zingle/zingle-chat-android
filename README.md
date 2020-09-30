@@ -67,6 +67,38 @@ import io.smooch.ui.ConversationActivity;
 
 ConversationActivity.builder().show(this);
 ```
+# Customizing Colors
+Using a `colors.xml` file in your `res/values` folder, you can change the colors used by:
+```
+<resources>
+    <color name="Zingle_accent">#9200aa</color>
+    <color name="Zingle_accentDark">#76008a</color>
+    <color name="Zingle_accentLight">#be7cca</color>
+
+    <color name="Zingle_backgroundInput">#ffffff</color>
+
+    <color name="Zingle_btnSendHollow">#c0c0c0</color>
+    <color name="Zingle_btnSendHollowBorder">#303030</color>
+
+    <color name="Zingle_header">#989898</color>
+
+    <color name="Zingle_messageDate">@color/Zingle_header</color>
+    <color name="Zingle_messageShadow">#7f999999</color>
+
+    <color name="Zingle_conversationBackground">#ecebeb</color>
+
+    <color name="Zingle_remoteMessageAuthor">@color/Zingle_header</color>
+    <color name="Zingle_remoteMessageBackground">#ffffff</color>
+    <color name="Zingle_remoteMessageBorder">#d9d9d9</color>
+    <color name="Zingle_remoteMessageText">#000000</color>
+
+    <color name="Zingle_userMessageBackground">@color/Zingle_accent</color>
+    <color name="Zingle_userMessageBorder">@color/Zingle_accentDark</color>
+    <color name="Zingle_userMessageFailedBackground">@color/Zingle_accentLight</color>
+    <color name="Zingle_userMessageText">#ffffff</color>
+</resources>
+```
+If you need to update the image of the Send button, simply add an image named `zingle_btn_send_normal.png` to your `drawables`.
 
 # Customizing strings
 The strings used in the SDK interface can be customized by specifying overrides in a language strings.xml file (for example, ```res/values-en/strings.xml``` for English).  Each string name should be prepended with 'Zingle_'.  Example:
